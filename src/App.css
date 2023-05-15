@@ -1,0 +1,80 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+.banner {
+  height: 50vh;
+  /* background-image: linear-gradient(to right, #00000080 0%, #0000002c 100%),url("../public/assets/images/nature2.jpeg"); */
+  /* background-position: bottom; */
+}
+
+.banner-text span {
+  color: #a12cfa;
+  font-weight: 600;
+  font-size: 35px;
+  font-family: 'Alkatra', cursive;}
+
+
+.item {
+  background-color: rgb(228, 212, 150);
+  height: 120px;
+  width: 180px;
+  border-radius: 5%;
+
+
+}
+
+
+
+.signupBox,
+.myForm {
+  background-color: #ffffff;
+  min-width: 300px;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.199);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="file"],
+.inpFeild {
+  padding: 10px;
+  border:  none;
+  border-radius: 5px;
+  background-color: #eaeef0;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.selectFeild {
+  color: rgb(125, 120, 120);
+}
+
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
