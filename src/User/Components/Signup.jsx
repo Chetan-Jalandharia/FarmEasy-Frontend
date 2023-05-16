@@ -179,7 +179,7 @@ export default function Signup() {
             onChange={handleInput}
           />
 
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             <Box
               sx={{
                 display: "flex",
@@ -219,7 +219,7 @@ export default function Signup() {
               />
             </Box>
           </Box>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: "flex", flexWrap: "wrap" }}>
             <Box
               sx={{
                 display: "flex",
