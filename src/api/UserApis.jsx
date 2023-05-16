@@ -34,10 +34,8 @@ import {
   VERIFY_USER,
 } from "../Common/routes/CustomerUrl";
 const Axios = axios.create({
-  baseURL:process.env.REACT_APP_SERVER_URL
+  baseURL: import.meta.env.VITE_SERVER_URL,
 });
-
-// const auth = sessionStorage.getItem("auth");
 
 class UserApies {
   userSignup(formdata) {
@@ -52,8 +50,6 @@ class UserApies {
   showProductCategory() {
     const auth = sessionStorage.getItem("auth");
 
-    console.log("customer cat");
-    console.log("customer auth " + auth);
     return Axios.get(SHOW_ALL_PRODUCT_CATEGORY, {
       headers: { auth: auth },
     });
@@ -79,7 +75,6 @@ class UserApies {
   addProduct(formdata) {
     const auth = sessionStorage.getItem("auth");
 
-    console.log("user api");
     return Axios.post(ADD_PRODUCT, formdata, {
       headers: {
         auth: auth,
@@ -200,7 +195,6 @@ class UserApies {
 
   sendBorrowReq(formdata) {
     const auth = sessionStorage.getItem("auth");
-    console.log(formdata);
     return Axios.post(SEND_BORROW_REQ, formdata, {
       headers: {
         auth: auth,
@@ -285,8 +279,6 @@ class UserApies {
 
   showSingleCustomer(id) {
     const auth = sessionStorage.getItem("auth");
-    // console.log(auth);
-    // console.log(id);
     return Axios.get(`${SHOW_CUSTOMER}/${id}`, {
       headers: { auth: auth },
     });

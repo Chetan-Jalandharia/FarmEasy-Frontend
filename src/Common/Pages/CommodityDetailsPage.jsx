@@ -55,8 +55,6 @@ function CommodityDetailsPage() {
     UserApis.sendComPurchaseReq(formdata)
       .then((val) => {
         if (val.status === 200) {
-          // console.log(val);
-          // alert("added")
           Alert.fire({
             icon: "success",
             title: "Request Send Successfully",
@@ -68,7 +66,6 @@ function CommodityDetailsPage() {
       });
     setQuantity(1);
   };
-  // console.log(id);
   return (
     <>
       <Container sx={{ minHeight: "70vh" }}>

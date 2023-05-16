@@ -10,7 +10,6 @@ function CommodityCategoryUpdatePage() {
     useEffect(() => {
         AdminApis.showSingleCommodityCat(id)
             .then(val => {
-                console.log(val.data.data);
                 let catData = val.data.data
                 setCategory({
                     name: catData?.categoryName,
@@ -20,7 +19,6 @@ function CommodityCategoryUpdatePage() {
 
     }, [])
 
-    // console.log(Product.type);
 
     const handleInput = (e) => {
         let name = e.target.name;
@@ -52,8 +50,7 @@ function CommodityCategoryUpdatePage() {
         AdminApis.updateCommodityCategory(formdata)
             .then((val) => {
                 if (val.status === 200) {
-                    console.log(val);
-                    // alert("added")
+                  
                     Alert.fire({
                         icon: 'success',
                         title: val?.data?.message,

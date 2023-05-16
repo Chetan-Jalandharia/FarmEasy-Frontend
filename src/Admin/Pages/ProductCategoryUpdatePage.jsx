@@ -10,7 +10,6 @@ function ProductCategoryUpdatePage() {
     useEffect(() => {
         AdminApis.showSingleProductCat(id)
             .then(val => {
-                console.log(val.data.data);
                 let catData = val.data.data
                 setCategory({
                     name: catData?.categoryName,
@@ -20,7 +19,6 @@ function ProductCategoryUpdatePage() {
 
     }, [])
 
-    // console.log(Product.type);
 
     const handleInput = (e) => {
         let name = e.target.name;
@@ -52,8 +50,6 @@ function ProductCategoryUpdatePage() {
         AdminApis.updateProductCategory(formdata)
             .then((val) => {
                 if (val.status === 200) {
-                    console.log(val);
-                    // alert("added")
                     Alert.fire({
                         icon: 'success',
                         title: val?.data?.message,

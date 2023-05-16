@@ -19,7 +19,6 @@ const ShowProCategories = () => {
         <Grid container spacing={3} sx={{ mt: 1, mb: 5 }}>
           {Category?.map((value, index) => {
             const { imgPath, categoryName, categoryDesc } = value;
-            // console.log(categoryImage);
 
             return (
               <Grid item xs={12} sm={4} md={4} lg={3}>

@@ -13,7 +13,6 @@ export default function ShowCustomers() {
   useEffect(() => {
     AdminApis.showCustomers()
       .then((val) => {
-        console.log(val.data.data);
         setData(val.data.data)
       })
       .catch(err => {

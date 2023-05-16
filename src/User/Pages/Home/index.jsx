@@ -12,13 +12,11 @@ const Home = () => {
   useEffect(() => {
     UserApis.showProductCategory().then((val) => {
       setProCategory(val.data.data);
-      console.log(val);
     });
   }, []);
   useEffect(() => {
     UserApis.showCommodityCategory().then((val) => {
       setComCategory(val.data.data);
-      // console.log(val);
     });
   }, []);
 

@@ -11,10 +11,8 @@ const CommodityRequestActions = ({ params, setUpdate }) => {
     const id = params.row._id
 
     const AcceptCommodity = (id) => {
-        // console.log(id);
         AdminApis.approveCommodity(id)
             .then((val) => {
-                console.log(val);
                 setUpdate((pre) => pre + 1)
                 Alert.fire({
                     icon: 'success',
@@ -40,7 +38,6 @@ const CommodityRequestActions = ({ params, setUpdate }) => {
     //             if (result.isConfirmed) {
     //                 AdminApis.rejectCommodity(id)
     //                     .then((val) => {
-    //                         // console.log(val);
     //                         setUpdate((pre) => pre + 1)
     //                         Alert.fire(
     //                             'Deleted!',

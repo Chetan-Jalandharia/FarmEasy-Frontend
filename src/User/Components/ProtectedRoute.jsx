@@ -6,7 +6,6 @@ const ProtectedRoute = ({ Component }) => {
   useEffect(() => {
 
     const auth = sessionStorage.getItem("auth");
-    console.log(auth);
     if (!auth) {
       navigate("/login");
     }

@@ -14,11 +14,8 @@ const PurchaseRequestCard = ({ id, userId, proId }) => {
   const [Product, setProduct] = useState(null);
 
   useEffect(() => {
-    // console.log(userId);
-    // console.log(proId);
     UserApis.showSingleCustomer(userId)
       .then((val) => {
-        console.log(val.data);
         setuser(val.data.data);
       })
       .catch((err) => {
@@ -27,7 +24,6 @@ const PurchaseRequestCard = ({ id, userId, proId }) => {
 
     UserApis.showSingleProduct(proId)
       .then((val) => {
-        console.log(val.data);
         setProduct(val.data.data);
       })
       .catch((err) => {
@@ -35,34 +31,6 @@ const PurchaseRequestCard = ({ id, userId, proId }) => {
       });
   }, []);
 
-  // const ApproveReq = () => {
-  //   UserApis.acceptProPurchaseReq(id)
-  //     .then((val) => {
-  //       console.log(val);
-  //       Toast.fire({
-  //         icon: "success",
-  //         title: "Request Accepted",
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-  // const RejectReq = () => {
-  //   UserApis.rejectProPurchaseReq(id)
-  //     .then((val) => {
-  //       console.log(val);
-  //       Toast.fire({
-  //         icon: "success",
-  //         title: "Request Rejected",
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  // console.log(name);
   return (
     <>
       <Card sx={{ maxWidth: 300, minWidth: 300, mx: "auto", minHeight: 200 }}>

@@ -7,7 +7,6 @@ import AdminApis from '../../api/AdminApis';
 
 const CategoryActions = ({params}) => {
     const navigate=useNavigate()
-    // console.log(params);
     const id=params.row._id
 
     const DeleteProduct=(id)=>{

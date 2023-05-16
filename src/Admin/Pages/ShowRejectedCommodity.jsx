@@ -14,7 +14,6 @@ export default function ShowRejectedCommodity() {
   useEffect(() => {
     AdminApis.showRejectedCommodity()
       .then((val) => {
-        console.log(val.data.data);
         setData(val.data.data);
       })
       .catch((err) => {
@@ -23,7 +22,6 @@ export default function ShowRejectedCommodity() {
   }, [Update]);
 
   const DeleteSelected = () => {
-    // console.log(List);
     AdminApis.deleteSelectedCommodity(List).then((val) => {
       console.log(val);
     });

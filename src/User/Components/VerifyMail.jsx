@@ -9,12 +9,10 @@ const VerifyMail = () => {
 
   const id = queryParams.get("id");
 
-  console.log(id);
 
   const handleVerify = () => {
     UserApis.verifyUser(id)
       .then((val) => {
-        console.log(val);
         if (val.status === 200) {
           Alert.fire({
             icon: "success",

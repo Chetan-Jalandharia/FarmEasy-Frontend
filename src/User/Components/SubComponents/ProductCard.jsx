@@ -9,10 +9,10 @@ import { RefreshContext } from "../../../Common/Context/RefreshData";
 const ProductCard = ({ img, name, description, price, id, isPro }) => {
   const navigate = useNavigate();
   let { Update, setUpdate } = useContext(RefreshContext);
+
   const DeletePro = (id) => {
     Axios.deleteProduct(id).then((val) => {
-      setUpdate((pre)=>pre+1);
-      // console.log(Update);
+      setUpdate((pre) => pre + 1);
       Alert.fire({
         icon: "success",
         title: "Deleted successfully",
@@ -21,13 +21,13 @@ const ProductCard = ({ img, name, description, price, id, isPro }) => {
   };
   const DeleteCom = (id) => {
     Axios.deleteCommodity(id).then((val) => {
-      setUpdate((pre)=>pre+1);
-      // console.log(Update);
+      setUpdate((pre) => pre + 1);
       Alert.fire({
         icon: "success",
         title: "Deleted successfully",
       });
-    });  };
+    });
+  };
   return (
     <>
       <Card sx={{ maxWidth: 300, minWidth: 280, mx: "auto" }}>

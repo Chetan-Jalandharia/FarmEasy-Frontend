@@ -13,7 +13,6 @@ export default function UnApprovedProducts() {
   useEffect(() => {
     AdminApis.showProductRequests()
       .then((val) => {
-        console.log(val.data.data);
         setData(val.data.data)
       })
       .catch(err => {

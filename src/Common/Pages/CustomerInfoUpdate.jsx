@@ -9,7 +9,6 @@ function CustomerInfoUpdate() {
   const [Customer, setCustomer] = useState({});
   useEffect(() => {
     AdminApis.showSingleCustomer(id).then((val) => {
-      console.log(val.data.data);
       let pData = val.data.data;
       setCustomer({
         id:id,
@@ -30,30 +29,16 @@ function CustomerInfoUpdate() {
     });
   };
 
-  // const handleImg = (e) => {
-  //     let value = e.target.files[0];
-  //     setCustomer({
-  //         ...Customer,
-  //         image: value,
-  //     });
-  // };
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     const { image, name, phone, email } = Customer;
-    // const formdata = new FormData();
-    console.log(id);
+    ;
 
-    // formdata.append("id", id);
-    // formdata.append("image", image);
-    // formdata.append("name", name);
-    // formdata.append("phone", phone);
-    // formdata.append("email", email);
-
+  
     AdminApis.updateCustomer(Customer)
       .then((val) => {
         if (val.status === 200) {
-          console.log(val);
-          // alert("added")
           Alert.fire({
             icon: "success",
             title: val?.data?.message,

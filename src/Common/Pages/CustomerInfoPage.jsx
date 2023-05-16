@@ -49,7 +49,6 @@ function CustomerInfoPage() {
   }, []);
 
   useEffect(() => {
-    console.log(value);
     if (value === 0) {
       UserApis.showAllAddedProduct()
         .then((val) => {
@@ -78,7 +77,6 @@ function CustomerInfoPage() {
       UserApis.showAllPurchaseReq()
         .then((val) => {
           setData(val.data.data);
-          // console.log(val.data.data);
         })
         .catch((err) => {
           console.log(err);
@@ -95,7 +93,6 @@ function CustomerInfoPage() {
       UserApis.showAllProPurchaseReqSend()
         .then((val) => {
           setData(val.data.data);
-          // console.log(val.data.data);
         })
         .catch((err) => {
           console.log(err);
@@ -120,7 +117,6 @@ function CustomerInfoPage() {
       UserApis.showAllSelledProduct()
         .then((val) => {
           setData(val.data.data);
-          console.log(val.data.data);
         })
         .catch((err) => {
           console.log(err);
@@ -130,7 +126,6 @@ function CustomerInfoPage() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    console.log(newValue);
   };
 
   function TabPanel(props) {
@@ -257,7 +252,6 @@ function CustomerInfoPage() {
         </Box>
         <TabPanel value={value} index={0}>
           {Data?.map((val, index) => {
-            // console.log(val.productName);
             return (
               <Grid item xs={12} sm={12} md={4}>
                 <ProductCard
@@ -275,7 +269,6 @@ function CustomerInfoPage() {
         </TabPanel>
         <TabPanel value={value} index={1}>
           {Data?.map((val, index) => {
-            console.log(val);
             return (
               <Grid item xs={12} sm={12} md={4}>
                 <ProductCard
@@ -293,7 +286,6 @@ function CustomerInfoPage() {
         </TabPanel>
         <TabPanel value={value} index={2}>
           {Data?.map((val, index) => {
-            // console.log(val?.startDate);
             return (
               <Grid item xs={12} sm={6} md={4}>
                 <RequestCard
@@ -311,7 +303,6 @@ function CustomerInfoPage() {
         </TabPanel>
         <TabPanel value={value} index={3}>
           {Data?.map((val, index) => {
-            console.log(val?.buyerId);
             return (
               <Grid item xs={12} sm={6} md={4}>
                 <PurchaseRequestCard
@@ -326,7 +317,6 @@ function CustomerInfoPage() {
         </TabPanel>
         <TabPanel value={value} index={4}>
           {Data?.map((val, index) => {
-            // console.log(val?.startDate);
             return (
               <Grid item xs={12} sm={6} md={4}>
                 <RequestCard
@@ -343,7 +333,6 @@ function CustomerInfoPage() {
         </TabPanel>
         <TabPanel value={value} index={5}>
           {Data?.map((val, index) => {
-            console.log(val?.ownerId);
             return (
               <Grid item xs={12} sm={6} md={4}>
                 <PurchaseRequestViewCard
@@ -357,7 +346,6 @@ function CustomerInfoPage() {
         </TabPanel>
         <TabPanel value={value} index={6}>
           {Data?.map((val, index) => {
-            // console.log(val?.startDate);
             return (
               <Grid item xs={12} sm={6} md={4}>
                 <RequestCard
@@ -374,7 +362,6 @@ function CustomerInfoPage() {
         </TabPanel>
         <TabPanel value={value} index={7}>
           {Data?.map((val, index) => {
-            // console.log(val?.startDate);
             return (
               <Grid item xs={12} sm={6} md={4}>
                 <RequestCard
@@ -391,7 +378,6 @@ function CustomerInfoPage() {
         </TabPanel>
         <TabPanel value={value} index={8}>
           {Data?.map((val, index) => {
-            // console.log(val?.ownerId);
             return (
               <Grid item xs={12} sm={6} md={4}>
                 <PurchaseRequestCard

@@ -33,7 +33,6 @@ function ProductDetailsPage() {
     UserApis.showSingleProduct(id)
       .then((val) => {
         setProduct(val.data.data);
-        console.log(val);
       })
       .catch((err) => {
         console.log(err);
@@ -56,13 +55,10 @@ function ProductDetailsPage() {
       endDate: EDate,
     };
 
-    // console.log(Product);
     UserApis.sendBorrowReq(formdata)
       .then((val) => {
         if (val.status === 200) {
-          console.log(val);
 
-          // alert("added")
           Alert.fire({
             icon: "success",
             title: val?.data?.message,
@@ -93,7 +89,6 @@ function ProductDetailsPage() {
       }).then((result) => {
         if (result.isConfirmed) {
           UserApis.sendProPurchaseReq(formdata).then((val) => {
-            // console.log(val);
             Alert.fire("Success", "Purchase Request send", "success");
           });
         }
@@ -101,7 +96,6 @@ function ProductDetailsPage() {
     }
   };
 
-  // console.log(id);
   return (
     <>
       <Container sx={{ minHeight: "70vh" }}>
@@ -109,10 +103,7 @@ function ProductDetailsPage() {
           <DialogTitle>Product Borrow Duration </DialogTitle>
           <DialogContent>
             <DialogContentText>Select Start Date :</DialogContentText>
-            {/* <DatePicker
-              value={SDate}
-              onChange={(newValue) => setSDate(newValue)}
-            /> */}
+          
             <input
               style={{ width: "100%", margin: "10px 0 0 0" }}
               type="date"

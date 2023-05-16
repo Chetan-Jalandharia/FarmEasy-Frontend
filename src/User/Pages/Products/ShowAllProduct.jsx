@@ -8,7 +8,6 @@ const ShowAllProduct = () => {
   useEffect(() => {
     UserApis.showAllProducts().then((val) => {
       setProduct(val.data.data);
-      console.log(val);
     });
   }, []);
   return (
@@ -26,7 +25,6 @@ const ShowAllProduct = () => {
               productPrice,
               _id,
             } = value;
-            console.log(imgPath);
 
             return (
               <Grid item xs={12} sm={4} md={4} lg={3}>

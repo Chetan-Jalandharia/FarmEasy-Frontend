@@ -13,7 +13,6 @@ export default function commodityListPage() {
   useEffect(() => {
     AdminApis.showAllCommodity()
       .then((val) => {
-        console.log(val.data.data);
         setdata(val.data.data);
       })
       .catch((err) => {

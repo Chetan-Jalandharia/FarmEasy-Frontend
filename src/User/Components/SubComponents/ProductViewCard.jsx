@@ -12,7 +12,6 @@ const ProductCard = ({ img, name, description, price, id, isPro }) => {
   const DeletePro = (id) => {
     Axios.deleteProduct(id).then((val) => {
       setUpdate((pre) => pre + 1);
-      // console.log(Update);
       Alert.fire({
         icon: "success",
         title: "Deleted successfully",
@@ -22,7 +21,6 @@ const ProductCard = ({ img, name, description, price, id, isPro }) => {
   const DeleteCom = (id) => {
     Axios.deleteCommodity(id).then((val) => {
       setUpdate((pre) => pre + 1);
-      // console.log(Update);
       Alert.fire({
         icon: "success",
         title: "Deleted successfully",

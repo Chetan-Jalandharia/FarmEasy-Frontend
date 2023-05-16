@@ -9,7 +9,6 @@ function ProductUpdatePage() {
   const [Product, setProduct] = useState({});
   useEffect(() => {
     AdminApis.showSingleProduct(id).then((val) => {
-      console.log(val.data.data);
       let pData = val.data.data;
       setProduct({
         name: pData?.productName,
@@ -20,7 +19,6 @@ function ProductUpdatePage() {
     });
   }, []);
 
-  console.log(Product.type);
 
   const handleInput = (e) => {
     let name = e.target.name;
@@ -56,8 +54,6 @@ function ProductUpdatePage() {
     AdminApis.updateProduct(formdata)
       .then((val) => {
         if (val.status === 200) {
-          console.log(val);
-          // alert("added")
           Alert.fire({
             icon: "success",
             title: val?.data?.message,

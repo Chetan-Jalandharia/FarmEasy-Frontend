@@ -76,7 +76,6 @@ export default function AddProductPage() {
       .addProduct(formdata)
       .then((val) => {
         if (val.status === 200) {
-          console.log(val);
           resetForm();
           Alert.fire({
             icon: "success",

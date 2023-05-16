@@ -37,7 +37,7 @@ import {
 } from "../Common/routes/AdminUrl";
 
 const Axios = axios.create({
-  baseURL: process.env.REACT_APP_SERVER_URL,
+  baseURL: import.meta.env.VITE_SERVER_URL
 });
 
 class AdminApi {
@@ -153,7 +153,6 @@ class AdminApi {
     });
   }
   showAllProduct() {
-    // console.log(auth);
     const auth = sessionStorage.getItem("auth");
 
     return Axios.get(SHOW_PRODUCT, {

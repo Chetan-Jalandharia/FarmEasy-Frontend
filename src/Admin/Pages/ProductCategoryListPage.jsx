@@ -1,23 +1,15 @@
 import { useState, useEffect } from "react";
-// import Axios from '../../Common/Axios';
-// import { AuthContext } from "../../Common/Context/Auth"
-// import { DeleteAlert, Toast } from '../../Common/Alert';
-// import { Card, CardContent, CardMedia, Typography } from '@mui/material';
-// import { CardActionArea, CardActions } from '@mui/material';
-// import { Button } from '@mui/joy';
 import AdminApis from "../../api/AdminApis";
 import DataGridTable from "../Components/DataGridTable";
 import { Avatar } from "@mui/material";
 import CategoryActions from "../Actions/ProductCategoryActions";
 
 export default function ProCatListPage() {
-  // const { auth } = useContext(AuthContext);
   const [data, setdata] = useState([]);
 
   useEffect(() => {
     AdminApis.showProductCategory()
       .then((val) => {
-        // console.log(val.data.data);
         setdata(val.data.data);
       })
       .catch((err) => {

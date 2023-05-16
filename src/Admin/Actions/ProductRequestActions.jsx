@@ -12,10 +12,8 @@ const ProductRequestActions = ({ params, setUpdate }) => {
 
     const AcceptProduct = (id) => {
 
-        // console.log(id);
         AdminApis.approveProduct(id)
             .then((val) => {
-                console.log(val);
                 setUpdate((pre) => pre + 1)
                 Alert.fire({
                     icon: 'success',
@@ -41,7 +39,6 @@ const ProductRequestActions = ({ params, setUpdate }) => {
                 if (result.isConfirmed) {
                     AdminApis.rejectProduct(id)
                         .then((val) => {
-                            // console.log(val);
                             setUpdate((pre) => pre + 1)
                             Alert.fire(
                                 'Deleted!',

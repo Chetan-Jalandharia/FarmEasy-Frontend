@@ -9,7 +9,6 @@ function CommodityUpdatePage() {
   const [Commodity, setCommodity] = useState({});
   useEffect(() => {
     AdminApis.showSingleCommodity(id).then((val) => {
-      console.log(val.data.data);
       let cData = val.data.data;
       setCommodity({
         name: cData?.commodityName,
@@ -20,8 +19,6 @@ function CommodityUpdatePage() {
       });
     });
   }, []);
-
-  // console.log(Commodity.type);
 
   const handleInput = (e) => {
     let name = e.target.name;
@@ -58,8 +55,6 @@ function CommodityUpdatePage() {
     AdminApis.updateCommodity(formdata)
       .then((val) => {
         if (val.status === 200) {
-          console.log(val);
-          // alert("added")
           Alert.fire({
             icon: "success",
             title: val?.data?.message,

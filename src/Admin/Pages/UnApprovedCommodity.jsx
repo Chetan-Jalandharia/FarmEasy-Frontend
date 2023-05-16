@@ -14,7 +14,6 @@ export default function UnApprovedCommodity() {
   useEffect(() => {
     AdminApis.showCommodityRequests()
       .then((val) => {
-        console.log(val.data.data);
         setData(val.data.data);
       })
       .catch((err) => {
@@ -23,7 +22,6 @@ export default function UnApprovedCommodity() {
   }, [Update]);
 
   const DeleteSelected = () => {
-    // console.log(List);
     AdminApis.deleteSelectedCommodity(List).then((val) => {
       console.log(val);
     });

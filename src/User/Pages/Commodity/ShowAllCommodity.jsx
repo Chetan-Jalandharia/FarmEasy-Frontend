@@ -8,7 +8,6 @@ const ShowAllCommodity = () => {
   useEffect(() => {
     UserApis.showAllCommodity().then((val) => {
       setCommodity(val.data.data);
-      console.log(val);
     });
   }, []);
   return (

@@ -31,7 +31,6 @@ export default function Login() {
 
     AdminApis.userLogin(email, password)
       .then((val) => {
-        console.log(val);
         if (val.status === 200) {
           Toast.fire({
             icon: "success",
@@ -40,8 +39,6 @@ export default function Login() {
           const tokenData = jwt(val.data.token);
           sessionStorage.setItem("auth", val.data.token);
           sessionStorage.setItem("tokenData", JSON.stringify(tokenData));
-          console.log(sessionStorage.getItem("tokenData"));
-          console.log("session set");
           if (val.data.data.isAdmin) {
             setnotAdmin(false);
             navigate("/admin");

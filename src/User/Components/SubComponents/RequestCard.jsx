@@ -15,7 +15,6 @@ const RequestCard = ({ id, userId, proId, duration, sDate, eDate }) => {
   useEffect(() => {
     UserApis.showSingleCustomer(userId)
       .then((val) => {
-        console.log(val.data);
         setuser(val.data.data);
       })
       .catch((err) => {
@@ -24,7 +23,6 @@ const RequestCard = ({ id, userId, proId, duration, sDate, eDate }) => {
 
     UserApis.showSingleProduct(proId)
       .then((val) => {
-        console.log(val.data);
         setProduct(val.data.data);
       })
       .catch((err) => {
@@ -35,7 +33,6 @@ const RequestCard = ({ id, userId, proId, duration, sDate, eDate }) => {
   const ApproveReq = () => {
     UserApis.acceptBorrowReq(id)
       .then((val) => {
-        console.log(val);
         Toast.fire({
           icon: "success",
           title: "Request Accepted",
@@ -48,7 +45,6 @@ const RequestCard = ({ id, userId, proId, duration, sDate, eDate }) => {
   const RejectReq = () => {
     UserApis.rejectBorrowReq(id)
       .then((val) => {
-        console.log(val);
         Toast.fire({
           icon: "success",
           title: "Request Rejected",

@@ -11,7 +11,6 @@ function CommodityCategoryDetailsPage() {
         AdminApis.showSingleCommodityCat(id)
             .then(val => {
                 setcategory(val.data.data)
-                // console.log(val.data.data);
             })
             .catch(err => {
                 console.log(err);
@@ -19,7 +18,6 @@ function CommodityCategoryDetailsPage() {
 
     }, [])
 
-    // console.log(id);
     return (
         <>
             <Box className="row ">

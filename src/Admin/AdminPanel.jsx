@@ -11,10 +11,7 @@ export default function Main() {
   const auth = sessionStorage.getItem("auth");
 
   useEffect(() => {
-    console.log(auth + " " + notAdmin);
-    // if (auth || !auth) {
-    //   notAdmin ? navigate("/login") : navigate("/");
-    // }
+    
     if (notAdmin) {
       navigate("/login");
     }
