@@ -179,13 +179,19 @@ export default function Signup() {
             onChange={handleInput}
           />
 
-          <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                width: "95%",
-                mr: 1,
+                width: "49%",
               }}
             >
               <label htmlFor="city">City:</label>
@@ -203,8 +209,7 @@ export default function Signup() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                width: "95%",
-                ml: 1,
+                width: "49%",
               }}
             >
               <label htmlFor="state">State:</label>
@@ -219,13 +224,19 @@ export default function Signup() {
               />
             </Box>
           </Box>
-          <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                width: "95%",
-                mr: 1,
+                width: "49%",
               }}
             >
               <label htmlFor="pincode">PinCode:</label>
@@ -244,8 +255,7 @@ export default function Signup() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                width: "95%",
-                ml: 1,
+                width: "49%",
               }}
             >
               <label htmlFor="district">District:</label>
