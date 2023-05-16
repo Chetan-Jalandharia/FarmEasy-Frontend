@@ -51,8 +51,7 @@ class AdminApi {
   //--------------------Product Category Apis---------------------
   showProductCategory() {
     const auth = sessionStorage.getItem("auth");
-    console.log("admin cat");
-    console.log("admin auth " + auth);
+
 
     return Axios.get(SHOW_ALL_PRODUCT_CATEGORY, {
       headers: { auth: auth },
