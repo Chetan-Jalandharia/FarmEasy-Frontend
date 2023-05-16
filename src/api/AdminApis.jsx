@@ -37,14 +37,11 @@ import {
 } from "../Common/routes/AdminUrl";
 
 const Axios = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: process.env.REACT_APP_SERVER_URL,
 });
-
-// const auth = sessionStorage.getItem("auth");
 
 class AdminApi {
   userLogin(email, password) {
-    // const auth = sessionStorage.getItem("auth");
     return Axios.post(USER_LOGIN, {
       email,
       password,
