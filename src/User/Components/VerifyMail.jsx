@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 import UserApis from "../../api/UserApis";
 import { Box, Button, Container } from "@mui/material";
 import { Alert } from "../../Common/Alert";
@@ -8,7 +7,6 @@ const VerifyMail = () => {
   const queryParams = new URLSearchParams(window.location.search);
 
   const id = queryParams.get("id");
-
 
   const handleVerify = () => {
     UserApis.verifyUser(id)

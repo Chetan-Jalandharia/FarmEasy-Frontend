@@ -102,7 +102,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
 
-          <Route path="/user">
+          <Route path="user">
             <Route path="verify" element={<VerifyMail />} />
           </Route>
 
