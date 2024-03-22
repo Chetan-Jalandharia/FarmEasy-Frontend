@@ -1,23 +1,30 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AdminApis from "../../api/AdminApis";
 import { Alert } from "../Alert";
 function CustomerInfoUpdate() {
   const { id } = useParams();
 
   const [Customer, setCustomer] = useState({});
+  const auth = sessionStorage.getItem("auth");
+  const navigate = useNavigate();
+
   useEffect(() => {
+    if (!auth) {
+      navigate("/login");
+    }
+
     AdminApis.showSingleCustomer(id).then((val) => {
       let pData = val.data.data;
       setCustomer({
-        id:id,
+        id: id,
         name: pData?.customerName,
         email: pData?.customerEmail,
         phone: pData?.customerPhone,
       });
     });
-  }, []);
+  }, [auth]);
 
   const handleInput = (e) => {
     let name = e.target.name;
@@ -29,13 +36,13 @@ function CustomerInfoUpdate() {
     });
   };
 
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const { image, name, phone, email } = Customer;
     ;
 
-  
+
     AdminApis.updateCustomer(Customer)
       .then((val) => {
         if (val.status === 200) {

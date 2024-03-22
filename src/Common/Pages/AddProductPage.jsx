@@ -5,12 +5,20 @@ import { Alert, Load } from "../Alert";
 import UserApis from "../../api/UserApis";
 import AdminApis from "../../api/AdminApis";
 import { RefreshContext } from "../Context/RefreshData";
+import { useNavigate } from "react-router-dom";
 
 export default function AddProductPage() {
+
+  const auth = sessionStorage.getItem("auth");
+  const navigate = useNavigate();
+
   const { isAdmin } = useContext(RefreshContext);
   const [data, setdata] = useState();
 
   useEffect(() => {
+    if (!auth) {
+      navigate("/login");
+    }
     try {
       UserApis.showProductCategory().then((val) => {
         setdata(val.data.data);
@@ -18,7 +26,7 @@ export default function AddProductPage() {
     } catch (error) {
       console.log("message :" + error);
     }
-  }, []);
+  }, [auth]);
 
   const [Product, setProduct] = useState({
     name: "",

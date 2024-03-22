@@ -8,20 +8,17 @@ import {
   DialogContentText,
   DialogTitle,
   Grid,
-  TextField,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Alert, ConfirmAlert } from "../Alert";
-import react, { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// import AdminApis from "../../api/AdminApis";
 import UserApis from "../../api/UserApis";
+import { RefreshContext } from "../Context/RefreshData";
 
 function ProductDetailsPage() {
-  const navigate = useNavigate();
   let { id } = useParams();
   const [open, setOpen] = useState(false);
   const [SDate, setSDate] = useState(null);
@@ -29,7 +26,15 @@ function ProductDetailsPage() {
   const [Product, setProduct] = useState();
   const theme = useTheme();
   const isSm = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const auth = sessionStorage.getItem("auth");
+  const navigate = useNavigate();
+  const {Update} = useContext(RefreshContext)
+
   useEffect(() => {
+    if (!auth) {
+      navigate("/login");
+    }
     UserApis.showSingleProduct(id)
       .then((val) => {
         setProduct(val.data.data);
@@ -37,7 +42,7 @@ function ProductDetailsPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [auth,Update]);
 
   const handleOpen = () => {
     setOpen(true);
@@ -103,7 +108,7 @@ function ProductDetailsPage() {
           <DialogTitle>Product Borrow Duration </DialogTitle>
           <DialogContent>
             <DialogContentText>Select Start Date :</DialogContentText>
-          
+
             <input
               style={{ width: "100%", margin: "10px 0 0 0" }}
               type="date"
@@ -123,9 +128,9 @@ function ProductDetailsPage() {
             <Button onClick={sendBorrowReq}>Send Request</Button>
           </DialogActions>
         </Dialog>
-        <Grid container  marginBottom={3}>
+        <Grid container marginBottom={3}>
           <Grid item md={6} xs={12} sm={6}>
-            <Box sx={{mt:4}}>
+            <Box sx={{ mt: 4 }}>
               <img
                 src={
                   Product?.imgPath
@@ -141,8 +146,8 @@ function ProductDetailsPage() {
           <Grid item xs={12} sm={6} md={6}>
             <Box
               sx={{
-               mt:5,
-               px:2,
+                mt: 5,
+                px: 2,
                 textAlign: isSm ? "center" : "left",
               }}
             >
@@ -182,7 +187,7 @@ function ProductDetailsPage() {
                   </Box>
                 </Grid>
               </Grid>
-        
+
             </Box>
           </Grid>
         </Grid>

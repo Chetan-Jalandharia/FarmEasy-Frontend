@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AdminApis from "../../api/AdminApis";
 import { Alert, Load } from "../Alert";
 function CommodityUpdatePage() {
   const { id } = useParams();
 
   const [Commodity, setCommodity] = useState({});
+
+  const auth = sessionStorage.getItem("auth");
+  const navigate = useNavigate();
+  const {Update} = useContext(RefreshContext)
+
   useEffect(() => {
+    if (!auth) {
+      navigate("/login");
+    }
     AdminApis.showSingleCommodity(id).then((val) => {
       let cData = val.data.data;
       setCommodity({
@@ -18,7 +26,7 @@ function CommodityUpdatePage() {
         quantity: cData?.commodityQuantity,
       });
     });
-  }, []);
+  }, [auth,Update]);
 
   const handleInput = (e) => {
     let name = e.target.name;

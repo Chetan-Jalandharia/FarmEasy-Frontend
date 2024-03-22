@@ -38,6 +38,12 @@ const Axios = axios.create({
 });
 
 class UserApies {
+
+  serverReq() {
+    return Axios.get("/");
+  }
+
+
   userSignup(formdata) {
     return Axios.post(REGISTER_USER, formdata);
   }

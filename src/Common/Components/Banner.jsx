@@ -1,33 +1,42 @@
-import { Container, Typography } from "@mui/material";
 import React from "react";
+import { Container, Typography } from "@mui/material";
+import Carousel from 'react-bootstrap/Carousel';
+// import ExampleCarouselImage from 'components/ExampleCarouselImage';
 
 export default function Banner() {
   return (
     <>
-      <Container>
-        <div className="row mt-3">
-          <div className="col-12 col-md-6 d-flex flex-column justify-content-center order-2 order-md-2">
-            <div className="banner-text mt-1">
-              <Typography fontSize={28} fontWeight={"bold"} color={"#EA592A"}>
-                Start <span>Sharing</span> Machines
-              </Typography>
 
-              <Typography fontSize={30} fontWeight={"bold"} color={"#EA592A"}>
-                <span>And</span> Build <span>FarmEasy</span>
-              </Typography>
-            </div>
+
+      <Carousel>
+        <Carousel.Item>
+          <div style={{ backgroundImage: "url('/img1.jpg')", backgroundPosition: "center", backgroundSize: "cover", height: "600px" }}>
+
+            <Carousel.Caption>
+              <h2>Welcome to FarmEasy</h2>
+            </Carousel.Caption>
           </div>
 
-          <div className="col order-1 order-md-2 text-end">
-            <img
-              src="/farmers001.svg"
-              height="100%"
-              width="89%"
-              alt="Farmer.PNG"
-            />
+        </Carousel.Item>
+        <Carousel.Item>
+          <div style={{ backgroundImage: "url('/img2.jpg')", backgroundPosition: "center", backgroundSize: "cover", height: "600px" }}>
+
+            <Carousel.Caption>
+              <h2>Welcome to FarmEasy</h2>
+            </Carousel.Caption>
+
           </div>
-        </div>
-      </Container>
+
+        </Carousel.Item>
+        <Carousel.Item>
+
+          <div style={{ backgroundImage: "url('/img3.jpg')", backgroundPosition: "center", backgroundSize: "cover", height: "600px" }}>
+            <Carousel.Caption>
+              <h2>Welcome to FarmEasy</h2>
+            </Carousel.Caption>
+          </div>
+        </Carousel.Item>
+      </Carousel>
     </>
   );
 }

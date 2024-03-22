@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AdminApis from "../../api/AdminApis";
 import { Alert, Load } from "../Alert";
+import { RefreshContext } from "../Context/RefreshData";
 function ProductUpdatePage() {
   const { id } = useParams();
 
   const [Product, setProduct] = useState({});
+
+  const auth = sessionStorage.getItem("auth");
+  const navigate = useNavigate();
+  const {Update} = useContext(RefreshContext)
+
   useEffect(() => {
+    if (!auth) {
+      navigate("/login");
+    }
     AdminApis.showSingleProduct(id).then((val) => {
       let pData = val.data.data;
       setProduct({
@@ -17,7 +26,7 @@ function ProductUpdatePage() {
         type: pData?.productType,
       });
     });
-  }, []);
+  }, [auth,Update]);
 
 
   const handleInput = (e) => {

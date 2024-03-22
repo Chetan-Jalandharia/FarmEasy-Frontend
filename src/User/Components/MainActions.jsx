@@ -16,7 +16,6 @@ const MainActions = () => {
       >
         <BoxAction value={"Sell Product"} linkTo="/product/sell" />
         <BoxAction value={"Buy Product"} linkTo="/product/showall" />
-        {/* <BoxAction value={"Rent Product"} linkTo="/product/rent" /> */}
         <BoxAction value={"Borrow Product"} linkTo="/product/showall" />
         <BoxAction value={"Sell Commodity"} linkTo="/commodity/sell" />
       </Container>

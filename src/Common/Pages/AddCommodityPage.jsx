@@ -3,11 +3,18 @@ import { Alert, Load } from "../Alert";
 import AdminApis from "../../api/AdminApis";
 import UserApis from "../../api/UserApis";
 import { RefreshContext } from "../Context/RefreshData";
+import { useNavigate } from "react-router-dom";
 export default function AddCommodityPage() {
+
+  const auth = sessionStorage.getItem("auth");
+  const navigate = useNavigate();
   const [data, setdata] = useState();
   const { isAdmin } = useContext(RefreshContext);
-  const { isCustomer } = useContext(RefreshContext);
+
   useEffect(() => {
+    if (!auth) {
+      navigate("/login");
+    }
     UserApis.showCommodityCategory()
       .then((val) => {
         setdata(val.data.data);
@@ -15,7 +22,7 @@ export default function AddCommodityPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [auth]);
 
   const [commodity, setcommodity] = useState({
     name: "",
@@ -91,7 +98,7 @@ export default function AddCommodityPage() {
         <h2>Add Commodity </h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="commodity_name">commodity Name:</label>
+            <label htmlFor="commodity_name">Commodity Name:</label>
             <input
               type="text"
               className="form-control"

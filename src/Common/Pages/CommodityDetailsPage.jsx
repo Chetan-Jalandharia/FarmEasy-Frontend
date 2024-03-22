@@ -13,11 +13,12 @@ import {
   useTheme,
 } from "@mui/material";
 
-import react, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import react, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import AdminApis from "../../api/AdminApis";
 import UserApis from "../../api/UserApis";
 import { Alert } from "../Alert";
+import { RefreshContext } from "../Context/RefreshData";
 
 function CommodityDetailsPage() {
   let { id } = useParams();
@@ -28,7 +29,15 @@ function CommodityDetailsPage() {
 
   const theme = useTheme();
   const isSm = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const auth = sessionStorage.getItem("auth");
+  const navigate = useNavigate();
+  const {Update} = useContext(RefreshContext)
+  
   useEffect(() => {
+    if (!auth) {
+      navigate("/login");
+    }
     UserApis.showSingleCommodity(id)
       .then((val) => {
         setCommodity(val.data.data);
@@ -36,7 +45,7 @@ function CommodityDetailsPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [auth,Update]);
 
   const handleOpen = () => {
     setOpen(true);

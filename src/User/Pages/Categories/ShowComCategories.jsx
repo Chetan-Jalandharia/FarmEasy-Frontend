@@ -1,15 +1,25 @@
 import { Container, Grid, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card from "../../Components/SubComponents/CategoryCard";
 import UserApis from "../../../api/UserApis";
+import { RefreshContext } from "../../../Common/Context/RefreshData";
+import { useNavigate } from "react-router-dom";
 
 const ShowComCategories = () => {
   const [Category, setCategory] = useState([]);
+
+  const auth = sessionStorage.getItem("auth");
+  const navigate = useNavigate();
+  const { Update } = useContext(RefreshContext)
+
   useEffect(() => {
+    if (!auth) {
+      navigate("/login");
+    }
     UserApis.showCommodityCategory().then((val) => {
       setCategory(val.data.data);
     });
-  }, []);
+  }, [auth, Update]);
 
   return (
     <>

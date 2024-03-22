@@ -11,7 +11,7 @@ import {
   useTheme,
 } from "@mui/material";
 import react, { Suspense, lazy, useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UserApis from "../../api/UserApis";
 import { MdHome, MdHomeFilled, MdMail, MdPhone } from "react-icons/md";
 
@@ -35,10 +35,17 @@ function CustomerInfoPage() {
   const [User, setUser] = useState();
   const [value, setValue] = useState(0);
   const [Data, setData] = useState();
-  const { Update, setUpdate } = useContext(RefreshContext);
   const theme = useTheme();
   const isSm = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const auth = sessionStorage.getItem("auth");
+  const navigate = useNavigate();
+  const { Update } = useContext(RefreshContext);
+
   useEffect(() => {
+    if (!auth) {
+      navigate("/login");
+    }
     UserApis.showSingleCustomer(id)
       .then((val) => {
         setUser(val.data.data.customerId);
@@ -46,7 +53,7 @@ function CustomerInfoPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [auth, Update]);
 
   useEffect(() => {
     if (value === 0) {
