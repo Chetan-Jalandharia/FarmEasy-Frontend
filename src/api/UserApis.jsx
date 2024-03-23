@@ -34,7 +34,7 @@ import {
   VERIFY_USER,
 } from "../Common/routes/CustomerUrl";
 const Axios = axios.create({
-  baseURL: import.meta.env.VITE_SERVER_URL,
+  baseURL: "https://farmeasy-apis.onrender.com"
 });
 
 class UserApies {

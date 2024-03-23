@@ -37,7 +37,7 @@ import {
 } from "../Common/routes/AdminUrl";
 
 const Axios = axios.create({
-  baseURL: import.meta.env.VITE_SERVER_URL
+  baseURL: "https://farmeasy-apis.onrender.com"
 });
 
 class AdminApi {
